@@ -1,4 +1,4 @@
-const yas = require('../index')
+const yas = require('../streamer')
 
 // Download audio.
 const id = 'HQmmM_qwG4k' // "Whole Lotta Love" by Led Zeppelin.

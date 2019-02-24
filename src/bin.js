@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const fs = require('fs')
 const path = require('path')
-const yas = require('./index')
+const yas = require('./streamer')
 const args = require('minimist')(process.argv.slice(2))
 const port = process.env.PORT || 80
 

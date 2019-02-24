@@ -1,4 +1,4 @@
-const yas = require('../index')
+const yas = require('../streamer')
 
 // Programatic search.
 const apiKey = 'YOUR-KEY-HERE'

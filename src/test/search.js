@@ -1,4 +1,4 @@
-const yas = require('../index')
+const yas = require('../streamer')
 
 // Search.
 yas.search(

@@ -1,35 +1,35 @@
-const fs = require('fs')
-const path = require('path')
-const mkdirp = require('mkdirp')
-const ytdl = require('ytdl-core')
-const YtNode = require('youtube-node')
-const through2 = require('through2')
-const Ffmpeg = require('fluent-ffmpeg')
-const cache = {}
+const fs = require('fs');
+const path = require('path');
+const mkdirp = require('mkdirp');
+const ytdl = require('ytdl-core');
+const YtNode = require('youtube-node');
+const through2 = require('through2');
+const Ffmpeg = require('fluent-ffmpeg');
+const cache = {};
 
 class YouTube {
   constructor () {
-    this.pageSize = 10
-    this.tempFolder = path.resolve(__dirname, '../temp-audio')
-    console.log('TEMP AUDIO FOLDER:', this.tempFolder)
-    mkdirp(this.tempFolder) // Create temp folder if it doesn't exist.
+    this.pageSize = 10;
+    this.tempFolder = path.resolve(__dirname, '../temp-audio');
+    console.log('TEMP AUDIO FOLDER:', this.tempFolder);
+    mkdirp(this.tempFolder); // Create temp folder if it doesn't exist.
 
-    const envApiKey = process.env.KEY
+    const envApiKey = process.env.KEY;
     if (envApiKey) this.setKey(envApiKey)
   }
 
   setKey (apiKey) {
-    this.ytNode = new YtNode()
+    this.ytNode = new YtNode();
     this.ytNode.setKey(apiKey)
   }
 
   streamDownloaded (id, callback) {
     const video = ytdl(id)
-    const ffmpeg = new Ffmpeg(video)
-    let sent = false
+    const ffmpeg = new Ffmpeg(video);
+    let sent = false;
 
     try {
-      const file = `${this.tempFolder}/${id}.mp3`
+      const file = `${this.tempFolder}/${id}.mp3`;
       ffmpeg
         .format('mp3')
         .on('end', () => {
@@ -91,7 +91,7 @@ class YouTube {
       if (typeof callback === 'function') {
         callback(null, { id, file })
       }
-    })
+    });
 
     fileWriter.on('error', error => {
       fileWriter.end()
@@ -115,4 +115,4 @@ class YouTube {
   }
 }
 
-module.exports = new YouTube()
+module.exports = new YouTube();

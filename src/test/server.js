@@ -1,4 +1,4 @@
-const yas = require('../index')
+const yas = require('../streamer')
 
 // Start listener (REST API).
 const port = 7331
