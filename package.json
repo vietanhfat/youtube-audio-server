@@ -2,7 +2,7 @@
   "name": "youtube-audio-server",
   "version": "2.4.1",
   "description": "Easily stream and download audio from YouTube.",
-  "main": "src/streamer.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "./src/bin.js",
     "test": "standard",
@@ -12,8 +12,16 @@
   "bin": {
     "yas": "./src/bin.js"
   },
-  "author": "Nicola Iacovelli",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codealchemist/youtube-audio-server.git"
+  },
+  "author": "Alberto Miranda",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/codealchemist/youtube-audio-server/issues"
+  },
+  "homepage": "https://github.com/codealchemist/youtube-audio-server#readme",
   "dependencies": {
     "express": "^4.15.2",
     "express-no-favicons": "0.0.1",
@@ -21,8 +29,8 @@
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
     "through2": "^2.0.3",
-    "youtube-node": "^1.3.0",
-    "ytdl-core": "^0.20.2"
+    "youtube-node": "^1.3.3",
+    "ytdl-core": "^0.29.1"
   },
   "devDependencies": {
     "standard-focus": "^1.1.2"
